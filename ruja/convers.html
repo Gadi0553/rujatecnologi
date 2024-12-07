@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ruja Exclusividades</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <a href="http://127.0.0.1:5500/Prototipo.html">
+            <img src="Ruja.png" alt="Logo de Ruja Exclusividades" class="header-logo">
+        </a>
+    
+        <div class="social-icons">
+            <a href="https://www.instagram.com/ruja.exclusividades/?igsh=b3BmYnNpd3BlMWxy" target="_blank">
+                <img src="ig.png" alt="Instagram" class="social-icon">
+            </a>
+            <a href="https://wa.me/18094784211" target="_blank">
+                <img src="wuasa.png" alt="WhatsApp" class="social-icon">
+            </a>
+        </div>
+    </header>
+
+   
+    <section class="products" id="catalogo">
+
+        <!-- Barra de filtro -->
+        <div class="filter-bar">
+            <label for="category-filter">Filtrar por categoría:</label>
+            <select id="category-filter">
+                <option value="all">Todos</option>
+                <option value="Accesorios">Accesorios</option>
+                <option value="Covers">Covers</option>
+                <option value="Teléfonos">Teléfonos</option>
+                <option value="Protectores de Pantalla">Protectores de Pantalla</option>
+            </select>
+            <button onclick="filterProducts()">Aplicar filtro</button>
+        </div>
+    
+        <div class="product-grid group">
+            <div class="product" data-category="Accesorios">
+                <img src="covers.png" alt="Producto 1">
+                <h3>Ruja </h3>
+                <p>Covers, Nueva colección</p>
+                <span>RD$550.00</span>
+            </div>
+            <div class="product" data-category="Covers">
+                <img src="coversw.png" alt="Producto 2">
+                <h3>Ruja </h3>
+                <p>Iphone 12</p>
+                <span>RD$15,450.00</span>
+            </div>
+            <div class="product" data-category="Teléfonos">
+                <img src="siii.png" alt="Producto 3">
+                <h3>Ruja </h3>
+                <p>Covers, Nueva coleccións</p>
+                <span>RD$1,950.00</span>
+            </div>
+            <div class="product" data-category="Protectores de Pantalla">
+                <img src="covers.png" alt="Producto 4">
+                <h3>Ruja </h3>
+                <p>Covers, Nueva colección</p>
+                <span>RD$550.00</span>
+            </div>
+            <div class="product" data-category="Covers">
+                <img src="coversw.png" alt="Producto 2">
+                <h3>Ruja</h3>
+                <p>Iphone 12</p>
+                <span>RD$15,450.00</span>
+            </div>
+            <div class="product" data-category="Teléfonos">
+                <img src="siii.png" alt="Producto 3">
+                <h3>Ruja </h3>
+                <p>Conjuntos, Hoodies</p>
+                <span>RD$1,950.00</span>
+            </div>
+            <div class="product" data-category="Protectores de Pantalla">
+                <img src="covers.png" alt="Producto 4">
+                <h3>Ruja </h3>
+                <p>Covers, Nueva colección</p>
+                <span>RD$550.00</span>
+            </div>
+            <div class="product" data-category="Covers">
+                <img src="coversw.png" alt="Producto 2">
+                <h3></h3>
+                <p>Iphone 12</p>
+                <span>RD$15,450.00</span>
+            </div>
+            <div class="product" data-category="Teléfonos">
+                <img src="siii.png" alt="Producto 3">
+                <h3>Ruja </h3>
+                <p>Covers, Nueva colección</p>
+                <span>RD$1,950.00</span>
+            </div>
+            <div class="product" data-category="Protectores de Pantalla">
+                <img src="covers.png" alt="Producto 4">
+                <h3>Ruja </h3>
+                <p>Covers, Nueva colección</p>
+                <span>RD$550.00</span>
+            </div>
+        </div>
+    </section>
+   
+    
+
+    <footer>
+        <p>&copy; 2024 Ruja Exclusividades - Dominican Republic</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

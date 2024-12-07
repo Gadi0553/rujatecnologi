@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito - Ruja Exclusividades</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="carrito.css">
+</head>
+<body>
+    <header>
+        <a href="Prototipo.html">
+            <img src="Ruja.png" alt="Logo de Ruja Exclusividades" class="header-logo">
+        </a>
+    
+        <nav class="nav-links">
+            <a href="Prototipo.html">Inicio</a>
+            <a href="Carrito.html" data-category="Carrito" class="cart-counter">
+                <img src="carritoou.jpeg" alt="Logo de carrito" style="width: 24px; height: 24px; vertical-align: middle;">
+                Carrito
+                <span id="cartCounter">0</span>
+            </a>
+        </nav>
+
+        <div class="social-icons">
+            <a href="https://www.instagram.com/ruja.exclusividades/?igsh=b3BmYnNpd3BlMWxy" target="_blank">
+                <img src="ig.png" alt="Instagram" class="social-icon">
+            </a>
+            <a href="https://wa.me/18094784211" target="_blank">
+                <img src="wuasa.png" alt="WhatsApp" class="social-icon">
+            </a>
+        </div>
+    </header>
+    <main>
+        <section id="cartSection">
+            <h1>
+                ¡¡ENVÍO A TODOS LOS LUGARES DEL PAÍS!!</h1>
+            <div id="cartItems">
+                <!-- Los productos del carrito se mostrarán aquí dinámicamente -->
+            </div>
+        </section>
+    </main>
+
+    
+
+    <footer>
+        <p>&copy; 2024 Ruja Exclusividades - Dominican Republic</p>
+    </footer>
+    <script>
+        // Variables globales para el carrito
+        let currentProduct = null;
+    
+        // Función para actualizar el contador del carrito
+        function updateCartCounter() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const cartCounter = document.getElementById('cartCounter');
+            if (cartCounter) {
+                cartCounter.textContent = cart.length;
+            }
+        }
+    
+        // Función para mostrar los productos en el carrito
+        function displayCartItems() {
+            const cartItemsContainer = document.getElementById('cartItems');
+            if (!cartItemsContainer) return;
+    
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = '<div class="empty-cart"><p>No hay productos en el carrito</p></div>';
+                return;
+            }
+    
+            let total = 0;
+            let cartHTML = '<div class="cart-items">';
+    
+            cart.forEach(item => {
+                const price = parseFloat(item.price.replace('RD$', '').replace(',', ''));
+                total += price * item.quantity;
+    
+                cartHTML += `
+                    <div class="cart-item" data-id="${item.id}">
+                        <img src="${item.image}" alt="${item.title}" class="cart-item-image">
+                        <div class="cart-item-details">
+                            <h3>${item.title}</h3>
+                            <p>${item.description}</p>
+                            <p class="cart-item-price">${item.price}</p>
+                            <div class="cart-item-quantity">
+                                <button onclick="updateQuantity(${item.id}, -1)">-</button>
+                                <span>${item.quantity}</span>
+                                <button onclick="updateQuantity(${item.id}, 1)">+</button>
+                            </div>
+                            <div class="cart-item-actions">
+                                <button onclick="removeFromCart(${item.id})" class="remove-item">Eliminar</button>
+                                <button onclick="buyItemWhatsApp(${item.id})" class="buy-item">Comprar </button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+    
+            cartHTML += `
+                </div>
+                <div class="cart-total">
+                    <h3>Total: RD$${total.toFixed(2)}</h3>
+                    <button onclick="checkout()" class="checkout-button">Proceder al pago</button>
+                </div>
+            `;
+    
+            cartItemsContainer.innerHTML = cartHTML;
+        }
+    
+        // Función para comprar un producto específico por WhatsApp
+        function buyItemWhatsApp(itemId) {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const item = cart.find(item => item.id === itemId);
+    
+            if (!item) return;
+    
+            const price = parseFloat(item.price.replace('RD$', '').replace(',', ''));
+            const total = price * item.quantity;
+    
+            const message = `Hola, me gustaría comprar el siguiente producto:\n\n` +
+                `${item.title} - ${item.description}\n` +
+                `Cantidad: ${item.quantity}\n` +
+                `Precio: ${item.price}\n\n` +
+                `Total: RD$${total.toFixed(2)}`;
+    
+            // Redirigir a WhatsApp
+            window.location.href = `https://wa.me/18094784211?text=${encodeURIComponent(message)}`;
+        }
+    
+        // Función para actualizar la cantidad de un producto
+        function updateQuantity(itemId, change) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const itemIndex = cart.findIndex(item => item.id === itemId);
+    
+            if (itemIndex !== -1) {
+                cart[itemIndex].quantity = Math.max(1, cart[itemIndex].quantity + change);
+                localStorage.setItem('cart', JSON.stringify(cart));
+                displayCartItems();
+                updateCartCounter();
+            }
+        }
+    
+        // Función para eliminar un producto del carrito
+        function removeFromCart(itemId) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || []; 
+            cart = cart.filter(item => item.id !== itemId);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            displayCartItems();
+            updateCartCounter();
+        }
+    
+        // Función para proceder al pago
+        function checkout() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            if (cart.length === 0) {
+                alert('El carrito está vacío');
+                return;
+            }
+    
+            // Crear mensaje para WhatsApp
+            let message = 'Hola, me gustaría comprar los siguientes productos:\n\n';
+            let total = 0;
+    
+            cart.forEach(item => {
+                const price = parseFloat(item.price.replace('RD$', '').replace(',', ''));
+                total += price * item.quantity;
+                message += `${item.title} - ${item.description}\n`;
+                message += `Cantidad: ${item.quantity}\n`;
+                message += `Precio: ${item.price}\n\n`;
+            });
+    
+            message += `Total: RD$${total.toFixed(2)}`;
+    
+            // Redirigir a WhatsApp
+            window.location.href = `https://wa.me/18094784211?text=${encodeURIComponent(message)}`;
+        }
+    
+        // Inicializar el carrito cuando se carga la página
+        document.addEventListener('DOMContentLoaded', () => {
+            updateCartCounter();
+            displayCartItems();
+        });
+    </script>
+    
+</body>
+</html>

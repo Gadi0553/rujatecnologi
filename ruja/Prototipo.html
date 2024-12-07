@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ruja Exclusividades</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <a href="http://127.0.0.1:5500/Prototipo.html">
+            <img src="rujalogo.png" alt="Logo de Ruja Exclusividades" class="header-logo">
+        </a>
+        <nav>
+            <a href="telefonos.html" data-category="Teléfonos">Teléfonos</a>
+            <a href="telefonos.html" data-category="Covers">Covers</a>
+            <a href="telefonos.html" data-category="Protectores de Pantalla">Protectores de Pantalla</a>
+            <a href="telefonos.html" data-category="Accesorios">Accesorios</a>
+            <a href="Carrito.html" data-category="Carrito" class="cart-counter">
+                <img src="carritoou.jpeg" alt="Logo de carrito" style="width: 24px; height: 24px; vertical-align: middle;">
+                Carrito
+                <span id="cartCounter">0</span>
+            </a>     
+        </nav>
+
+        <section class="search-section">
+            <input type="text" id="search-bar" placeholder="Buscar productos..." aria-label="Buscar productos">
+            <button id="search-btn">
+                <img src="luap.png" alt="Buscar" class="search-icon">
+            </button>
+        </section>
+    </header>
+
+    <section class="hero">
+        <div class="hero-text">
+            <h2>Empresa de tecnología de la información</h2>
+            <p class="hero-description">
+                CASES / CORREAS / COVER PERSONALIZADO / AIRPODS CASE Y MÁS<br>
+                📍(Hato Mayor) c/ Duarte casi esq Mercedes<br>
+                • Lun a Sab 9:00 am a 7:00 pm<br>
+                • Dom 9:00 - 1:00
+            </p>
+            <a href="#catalogo">Ver Catálogo</a>
+        </div>
+        <img src="cell2.png" alt="Imagen destacada de RUJA">
+    </section>
+
+    <section class="image-gallery">
+        <div class="image-gallery">
+            <div class="image-item">
+                <img src="re5.jpg" alt="Imagen 1">
+                <p class="caption">La mejor reparación de teléfonos la tenemos aqui en Ruja.</p>
+            </div>
+        </div>
+        
+        <div class="image-gallery">
+            <div class="image-item">
+                <img src="re6.jpg" alt="Imagen 1">
+                <p class="caption">Reparamos tu celular como nuevo, rápido y seguro.</p>
+            </div>
+        </div>
+        <div class="image-gallery">
+            <div class="image-item">
+                <img src="re7.jpg" alt="Imagen 1">
+                <p class="caption">Expertos en reparación y cuidado de tu celular.</p>
+            </div>
+        </div>
+        <div class="image-gallery">
+            <div class="image-item">
+                <img src="re3.png" alt="Imagen 1">
+                <p class="caption">La mejor solución para tu teléfono, con calidad garantizada.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="products" id="catalogo">
+            <h2>TODOS NUESTROS PRODUCTOS DISPONIBLES</h2>
+            </BR>
+
+            <div class="product-grid group">
+                <div class="product" data-category="Accesorios" 
+                onclick="showProductModal('covers.png', 'Ruja Covers', 'Covers, Nueva colección', 'RD$550.00')">
+            <img src="covers.png" alt="Producto 1">
+            <h3>Ruja Covers</h3>
+            <p>Covers, Nueva colección</p>
+            <span>RD$550.00</span>
+        </div>
+ 
+                
+        <div class="product" data-category="Covers" onclick="showProductModal('coversw.png', 'Ruja', 'Iphone 12', 'RD$15,450.00')">
+            <img src="coversw.png" alt="Producto 2">
+            <h3>Ruja</h3>
+            <p>Iphone 12</p>
+            <span>RD$15,450.00</span>
+        </div>
+        <div class="product" data-category="Teléfonos" onclick="showProductModal('siii.png', 'Ruja', 'Covers, Nueva coleccións', 'RD$1,950.00')">
+            <img src="siii.png" alt="Producto 3">
+            <h3>Ruja</h3>
+            <p>Covers, Nueva coleccións</p>
+            <span>RD$1,950.00</span>
+        </div>
+        <div class="product" data-category="Protectores de Pantalla" onclick="showProductModal('covers.png', 'Ruja', 'Covers, Nueva colección', 'RD$550.00')">
+            <img src="covers.png" alt="Producto 4">
+            <h3>Ruja</h3>
+            <p>Covers, Nueva colección</p>
+            <span>RD$550.00</span>
+        </div>
+                   
+        <div class="product" data-category="Covers" onclick="showProductModal('coversw.png', 'Ruja', 'Iphone 12', 'RD$15,450.00')">
+            <img src="coversw.png" alt="Producto 2">
+            <h3>Ruja</h3>
+            <p>Iphone 12</p>
+            <span>RD$15,450.00</span>
+        </div>
+        <div class="product" data-category="Teléfonos" onclick="showProductModal('siii.png', 'Ruja', 'Covers, Nueva coleccións', 'RD$1,950.00')">
+            <img src="siii.png" alt="Producto 3">
+            <h3>Ruja</h3>
+            <p>Covers, Nueva coleccións</p>
+            <span>RD$1,950.00</span>
+        </div>
+        <div class="product" data-category="Protectores de Pantalla" onclick="showProductModal('covers.png', 'Ruja', 'Covers, Nueva colección', 'RD$550.00')">
+            <img src="covers.png" alt="Producto 4">
+            <h3>Ruja</h3>
+            <p>Covers, Nueva colección</p>
+            <span>RD$550.00</span>
+        </div>
+
+               
+        <div class="product" data-category="Covers" onclick="showProductModal('coversw.png', 'Ruja', 'Iphone 12', 'RD$15,450.00')">
+            <img src="coversw.png" alt="Producto 2">
+            <h3>Ruja</h3>
+            <p>Iphone 12</p>
+            <span>RD$15,450.00</span>
+        </div>
+        <div class="product" data-category="Teléfonos" onclick="showProductModal('siii.png', 'Ruja', 'Covers, Nueva coleccións', 'RD$1,950.00')">
+            <img src="siii.png" alt="Producto 3">
+            <h3>Ruja</h3>
+            <p>Covers, Nueva coleccións</p>
+            <span>RD$1,950.00</span>
+        </div>
+        <div class="product" data-category="Protectores de Pantalla" onclick="showProductModal('covers.png', 'Ruja', 'Covers, Nueva colección', 'RD$550.00')">
+            <img src="covers.png" alt="Producto 4">
+            <h3>Ruja</h3>
+            <p>Covers, Nueva colección</p>
+            <span>RD$550.00</span>
+        </div>
+
+               
+        <div class="product" data-category="Covers" onclick="showProductModal('coversw.png', 'Ruja', 'Iphone 12', 'RD$15,450.00')">
+            <img src="coversw.png" alt="Producto 2">
+            <h3>Ruja</h3>
+            <p>Iphone 12</p>
+            <span>RD$15,450.00</span>
+        </div>
+        <div class="product" data-category="Teléfonos" onclick="showProductModal('siii.png', 'Ruja', 'Covers, Nueva coleccións', 'RD$1,950.00')">
+            <img src="siii.png" alt="Producto 3">
+            <h3>Ruja</h3>
+            <p>Covers, Nueva coleccións</p>
+            <span>RD$1,950.00</span>
+        </div>
+        <div class="product" data-category="Protectores de Pantalla" onclick="showProductModal('covers.png', 'Ruja', 'Covers, Nueva colección', 'RD$550.00')">
+            <img src="covers.png" alt="Producto 4">
+            <h3>Ruja</h3>
+            <p>Covers, Nueva colección</p>
+            <span>RD$550.00</span>
+        </div>
+
+               
+        <div class="product" data-category="Covers" onclick="showProductModal('coversw.png', 'Ruja', 'Iphone 12', 'RD$15,450.00')">
+            <img src="coversw.png" alt="Producto 2">
+            <h3>Ruja</h3>
+            <p>Iphone 12</p>
+            <span>RD$15,450.00</span>
+        </div>
+        <div class="product" data-category="Teléfonos" onclick="showProductModal('siii.png', 'Ruja', 'Covers, Nueva coleccións', 'RD$1,950.00')">
+            <img src="siii.png" alt="Producto 3">
+            <h3>Ruja</h3>
+            <p>Covers, Nueva coleccións</p>
+            <span>RD$1,950.00</span>
+        </div>
+        <div class="product" data-category="Protectores de Pantalla" onclick="showProductModal('covers.png', 'Ruja', 'Covers, Nueva colección', 'RD$550.00')">
+            <img src="covers.png" alt="Producto 4">
+            <h3>Ruja</h3>
+            <p>Covers, Nueva colección</p>
+            <span>RD$550.00</span>
+        </div>
+
+               
+        <div class="product" data-category="Covers" onclick="showProductModal('coversw.png', 'Ruja', 'Iphone 12', 'RD$15,450.00')">
+            <img src="coversw.png" alt="Producto 2">
+            <h3>Ruja</h3>
+            <p>Iphone 12</p>
+            <span>RD$15,450.00</span>
+        </div>
+        <div class="product" data-category="Teléfonos" onclick="showProductModal('siii.png', 'Ruja', 'Covers, Nueva coleccións', 'RD$1,950.00')">
+            <img src="siii.png" alt="Producto 3">
+            <h3>Ruja</h3>
+            <p>Covers, Nueva coleccións</p>
+            <span>RD$1,950.00</span>
+        </div>
+        <div class="product" data-category="Protectores de Pantalla" onclick="showProductModal('covers.png', 'Ruja', 'Covers, Nueva colección', 'RD$550.00')">
+            <img src="covers.png" alt="Producto 4">
+            <h3>Ruja</h3>
+            <p>Covers, Nueva colección</p>
+            <span>RD$550.00</span>
+        </div>
+        <div class="product" data-category="Covers" onclick="showProductModal('coversw.png', 'Ruja', 'Iphone 12', 'RD$15,450.00')">
+            <img src="coversw.png" alt="Producto 2">
+            <h3>Ruja</h3>
+            <p>Iphone 12</p>
+            <span>RD$15,450.00</span>
+        </div>
+    
+          <!-- Modal -->
+           
+                <div id="productModal" class="modal">
+                    <div class="modal-content">
+                        
+                        <span class="close" onclick="closeProductModal()">&times;</span>
+                        <img id="modalImage" src="" alt="Producto">
+                        <h3 id="modalTitle"></h3>
+                        <p id="modalDescription"></p>
+                        <span id="modalPrice"></span>
+                        <a id="whatsappLink" href="#" target="_blank" class="whatsapp-button">Comprar en WhatsApp</a>
+                        <!-- Botón para añadir al carrito -->
+                        <button id="addToCartButton" class="add-to-cart-button" onclick="addToCart()">Añadir al carrito</button>
+                    </div>
+                </div>
+                
+    </div>
+</section>
+
+
+  
+<section class="location-section background-white">
+    <h2>Ubicación de Nuestro Local</h2>
+    <p>¡Visítanos en nuestra tienda para obtener la mejor reparación de teléfonos! Estamos ubicados en:</p>
+    <p><strong>📍(Hato Mayor) c/ Duarte casi esq Mercedes</strong></p>
+    <div class="map-container">
+        <iframe 
+            src="https://maps.google.com/maps?q=P2hkSV47qV8CuTWBA&output=embed" 
+            width="100%" 
+            height="400" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy">
+        </iframe>
+    </div>
+</section>
+
+    
+    <footer>
+       
+        <div class="social-icons">
+            <a href="https://www.instagram.com/ruja.exclusividades/?igsh=b3BmYnNpd3BlMWxy" target="_blank">
+                <img src="ig.png" alt="Instagram" class="social-icon">
+            </a>
+            <a href="https://www.instagram.com/rujatechnology_eirl/" target="_blank">
+                <img src="ig.png" alt="Instagram" class="social-icon">
+            </a>
+            <a href="https://wa.me/18094784211" target="_blank">
+                <img src="wuasa.png" alt="WhatsApp" class="social-icon">
+            </a>
+        </div>
+        
+
+        
+        <h3>Síguenos en nuestras redes</h3>
+        <p>&copy; 2024 Ruja Exclusividades - Dominican Republic</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
